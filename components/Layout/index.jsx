@@ -1,6 +1,6 @@
 import React from 'react';
-import { Paper } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { Paper } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

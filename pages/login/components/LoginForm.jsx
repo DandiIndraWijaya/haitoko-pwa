@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
-import { Box, Button, FormHelperText, IconButton, InputAdornment, OutlinedInput, CircularProgress, Typography } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import { Forum, Lock, Person, Visibility, VisibilityOff } from '@mui/icons-material';
+import { Box, Button, FormHelperText, IconButton, InputAdornment, OutlinedInput, CircularProgress, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
+import { Phone } from '@material-ui/icons';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import GoogleSignIn from './GoogleLogin';
 
 const useStyles = makeStyles((theme) => ({
   formInput: {
@@ -13,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 35,
   },
   buttonSubmit: {
-    marginTop: 10,
+    marginTop: 20,
+    borderRadius: 100,
     background: theme.palette.primary.main,
     color: theme.palette.text.white,
     width: '90%',
@@ -36,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   link: {
-    color: theme.palette.text.link,
+    color: theme.palette.primary.main,
     cursor: 'pointer',
   },
   boxLink: {
@@ -51,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   inputField: {
     width: '90%',
     marginTop: 10,
-    borderRadius: 8,
+    borderRadius: 100,
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
@@ -75,104 +78,88 @@ const useStyles = makeStyles((theme) => ({
     color: '#ffff',
     fontSize: 10,
   },
+  textGrey: {
+    color: theme.palette.grey[600],
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  textGreyAkun: {
+    color: theme.palette.grey[500],
+    fontSize: 14,
+    fontWeight: '600',
+  },
 }));
 
 const Component = (props) => {
-  const { onSubmitLogin, error, onChangeForm, auth } = props;
+  const router = useRouter();
   const classes = useStyles();
-  const [values, setValues] = useState({
-    showPassword: false,
-  });
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = (e) => {
     // stop submit
     e.preventDefault();
-    // const username = e.target.elements.name.value;
-    // const password = e.target.elements.password.value;
-
-    // const payload = {
-    //   username,
-    //   password,
-    // };
-    // onSubmitLogin(payload);
+    setLoading(true);
+    if (typeof window !== 'undefined') {
+      const userData = JSON.stringify({
+        email: 'yakhida@gmail.com',
+        uid: 'WBHWUpDIJdokhqzW6pFJXvBXM0OKjo',
+      });
+      localStorage.setItem('user', userData);
+      setLoading(false);
+      router.push('/');
+    }
   };
 
   return (
     <Box className={classes.formInput}>
-      {
+      {/* {
         error.status
         && (
         <Box className={classes.boxError}>
           <FormHelperText className={classes.textError}>{error.message}</FormHelperText>
         </Box>
         )
-      }
+      } */}
       <form onSubmit={onSubmit}>
         <center>
           <OutlinedInput
+            type="number"
+            required
             name="name"
             className={classes.inputField}
-            placeholder="Username"
-            onChange={() => onChangeForm()}
+            placeholder="Nomor HP Anda"
+            // onChange={() => onChangeForm()}
             startAdornment={(
               <InputAdornment position="start" className={classes.icon}>
-                <Person />
+                <Phone />
               </InputAdornment>
           )}
           />
-        </center>
-        <center>
-          <OutlinedInput
-            name="password"
-            className={classes.inputField}
-            placeholder="Password"
-            onChange={() => onChangeForm()}
-            type={values.showPassword ? 'text' : 'password'}
-            startAdornment={(
-              <InputAdornment position="start" className={classes.icon}>
-                <Lock />
-              </InputAdornment>
-          )}
-            endAdornment={(
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>
-          )}
-          />
-        </center>
-        <center>
-          <Box className={classes.boxLink}>
-            <Link href="#" underline="none"><Typography className={classes.link}>Lupa password?</Typography></Link>
-          </Box>
         </center>
         <center>
           <Button type="submit" variant="contained" className={classes.buttonSubmit}>
-            {/* {
-              auth.loading
+            {
+              loading
                 ? <CircularProgress fontSize="small" className={classes.circularProgress} size={24} />
                 : 'Masuk'
-            } */}
-            Masuk
+            }
           </Button>
         </center>
+        <Box style={{ margin: 30 }}>
+          <center>
+            <Typography className={classes.textGrey}>
+              Atau Login Melalui
+            </Typography>
+          </center>
+        </Box>
         <center>
-          <Button variant="outlined" className={classes.buttonCS} startIcon={<Forum />}>Hubungi CS</Button>
+          <GoogleSignIn />
         </center>
         <center>
           <Box className={classes.boxLink} style={{ marginTop: 5 }}>
-            <Box style={{ display: 'flex' }}>
-              <Typography>Belum punya akun?</Typography>
-              <Box style={{ flex: 1 }}>
+            <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Typography className={classes.textGreyAkun}>Belum punya akun?</Typography>
+              <Box>
                 <Link href="/daftar-driver"><Typography className={classes.link} style={{ marginLeft: 10 }}>Daftar disini</Typography></Link>
               </Box>
             </Box>
