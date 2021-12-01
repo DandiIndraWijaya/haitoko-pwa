@@ -1,6 +1,9 @@
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
+  if (typeof window !== 'undefined') {
+    console.log('USER : ', localStorage.getItem('user'));
+  }
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -55,5 +58,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
+  );
 }
