@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
 import { useRouter } from 'next/router';
-import Layout from '@components/layout';
+import Layout from '@components/Layout';
 import { makeStyles } from '@material-ui/styles';
 import LoginForm from './components/LoginForm';
 import WelcomeMessage from './components/WelcomeMessage';
