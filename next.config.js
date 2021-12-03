@@ -9,6 +9,6 @@ module.exports = withPWA({
   pwa: {
     dest: 'public',
     runtimeCaching,
-    buildExcludes: [/middleware-manifest.json$/],
+    buildExcludes: [/middleware-manifest\.json$/],
   },
 });
