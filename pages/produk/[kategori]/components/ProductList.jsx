@@ -74,6 +74,8 @@ const ProductList = () => {
                 data.name.length > 25 ? data.name.slice(0, 25).concat('...') : data.name
               }
             </Typography>
+            <Typography className={classes.productPrice}>Rp. {'2500'.toLocaleString('ID-id')}</Typography>
+            <Button variant="contained" className={classes.tambahBtn}>Tambah</Button>
           </Box>
         </Grid>
         <Grid item xs={4}>
@@ -84,6 +86,8 @@ const ProductList = () => {
                 data.name.length > 20 ? data.name.slice(0, 20).concat('...') : data.name
               }
             </Typography>
+            <Typography className={classes.productPrice}>Rp. {'2500'.toLocaleString('ID-id')}</Typography>
+            <Button variant="contained" className={classes.tambahBtn}>Tambah</Button>
           </Box>
         </Grid>
       </Grid>
