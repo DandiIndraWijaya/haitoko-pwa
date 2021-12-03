@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import Layout from '@components/Layout';
 import NavbarBack from '@components/Navbar/NavbarBack';
 import Highlight from './merchant/[id]/components/Highlight';
+import ProductCategories from './merchant/[id]/components/ProductCategories';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -17,6 +18,7 @@ const MerchantDetail = () => {
       <NavbarBack currentPage="Detail Toko" />
       <Container>
         <Highlight />
+        <ProductCategories />
       </Container>
     </Layout>
   );

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useMediaQuery } from 'react-responsive';
 import { Favorite } from '@material-ui/icons';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,6 +82,7 @@ const Highlight = () => {
   const classes = useStyles();
   const isMobile = useMediaQuery({ query: '(max-width: 789px)' });
   const [selectedDelivery, setSelectedDelivery] = useState(0);
+
   const deliveries = [
     'Express',
     '09:15',

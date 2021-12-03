@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#000',
     paddingTop: 10,
     paddingBottom: 10,
+    boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.04)',
   },
   arrowIcon: {
     color: theme.palette.primary.main,
@@ -31,7 +32,7 @@ const NavbarBack = (props) => {
   };
 
   return (
-    <AppBar elevation={1} position="sticky" className={classes.appBar}>
+    <AppBar position="sticky" className={classes.appBar}>
       <Grid container alignItems="center">
         <Grid item xs={2}>
           <IconButton size="small" onClick={onClickBack}>
