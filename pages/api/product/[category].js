@@ -7,9 +7,9 @@ export default (req, res) => {
 
   if (productBasedOnID.length > 0) {
     res.statusCode = 200;
-    res.json(productBasedOnID.pop());
+    res.json(productBasedOnID);
   } else {
     res.statusCode = 404;
-    res.send('Not found - ID is not related to any products');
+    res.json(productBasedOnID);
   }
 };

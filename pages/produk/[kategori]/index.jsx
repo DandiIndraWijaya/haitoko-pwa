@@ -12,17 +12,16 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const ProductByCategory = ({ product }) => {
+const ProductByCategory = ({ products }) => {
   const classes = useStyles();
   const router = useRouter();
   const { kategori } = router.query;
-  console.log('PRODUCT : ', product);
   return (
     <Layout>
       <NavbarBack currentPage={kategori.charAt(0).toUpperCase() + kategori.slice(1)} />
       <Container>
         <SearchProduct />
-        <ProductList />
+        <ProductList products={products} />
       </Container>
     </Layout>
   );
@@ -33,18 +32,16 @@ export async function getStaticPaths() {
   const categoriesMerchant = await resCategoriesMerchant.json();
 
   const paths = categoriesMerchant.response.map((category) => `/produk/${category.kategori.toLowerCase()}`);
-  console.log('PATHS : ', paths);
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  console.log('params: ', params);
   const res = await fetch(`http://localhost:3000/api/product/${params.kategori}`);
-  const product = await res.json();
+  const products = await res.json();
 
   return {
     props: {
-      product,
+      products,
     },
   };
 }
