@@ -10,18 +10,33 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const MerchantDetail = () => {
+const MerchantDetail = ({ merchantDetail, categoriesMerchant }) => {
   const classes = useStyles();
 
   return (
     <Layout>
       <NavbarBack currentPage="Detail Toko" />
       <Container>
-        <Highlight />
-        <ProductCategories />
+        <Highlight merchantDetail={merchantDetail} />
+        <ProductCategories categoriesMerchant={categoriesMerchant} />
       </Container>
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const resMerchantDetail = await fetch('http://localhost:3000/api/merchantDetail');
+  const merchantDetail = await resMerchantDetail.json();
+
+  const resCategoriesMerchant = await fetch('http://localhost:3000/api/categoriesMerchant');
+  const categoriesMerchant = await resCategoriesMerchant.json();
+
+  return {
+    props: {
+      merchantDetail,
+      categoriesMerchant,
+    },
+  };
+}
 
 export default MerchantDetail;
