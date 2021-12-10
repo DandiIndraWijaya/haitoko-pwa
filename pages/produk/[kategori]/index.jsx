@@ -4,7 +4,9 @@ import { Container, Box, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import NavbarBack from '@components/Navbar/NavbarBack';
 import { useRouter } from 'next/router';
-import axios from 'axios';
+import categoriesMerchant from '@pages/api/categoriesMerchant';
+import getProducts from '@pages/api/product/[category]';
+import products from '@pages/api/products';
 import SearchProduct from './components/SearchProduct';
 import ProductList from './components/ProductList';
 
@@ -28,17 +30,17 @@ const ProductByCategory = ({ products }) => {
 };
 
 export async function getStaticPaths() {
-  const resCategoriesMerchant = await fetch('http://localhost:3000/api/categoriesMerchant');
-  const categoriesMerchant = await resCategoriesMerchant.json();
+  // const resCategoriesMerchant = await fetch('http://localhost:3000/api/categoriesMerchant');
+  // const categoriesMerchant = await resCategoriesMerchant.json();
 
   const paths = categoriesMerchant.response.map((category) => `/produk/${category.kategori.toLowerCase()}`);
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`http://localhost:3000/api/product/${params.kategori}`);
-  const products = await res.json();
-
+  // const res = await fetch(`http://localhost:3000/api/product/${params.kategori}`);
+  // const products = await res.json();
+  const products = getProducts(params.kategori);
   return {
     props: {
       products,

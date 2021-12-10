@@ -5,6 +5,8 @@ import Layout from '@components/Layout';
 import NavbarBack from '@components/Navbar/NavbarBack';
 import Highlight from './merchant/[id]/components/Highlight';
 import ProductCategories from './merchant/[id]/components/ProductCategories';
+import merchantDetail from './api/merchantDetail';
+import categoriesMerchant from './api/categoriesMerchant';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -25,11 +27,11 @@ const MerchantDetail = ({ merchantDetail, categoriesMerchant }) => {
 };
 
 export async function getStaticProps() {
-  const resMerchantDetail = await fetch('http://localhost:3000/api/merchantDetail');
-  const merchantDetail = await resMerchantDetail.json();
+  // const resMerchantDetail = await fetch('http://localhost:3000/api/merchantDetail');
+  // const merchantDetail = await resMerchantDetail.json();
 
-  const resCategoriesMerchant = await fetch('http://localhost:3000/api/categoriesMerchant');
-  const categoriesMerchant = await resCategoriesMerchant.json();
+  // const resCategoriesMerchant = await fetch(merchantDetail);
+  // const categoriesMerchant = await resCategoriesMerchant.json();
 
   return {
     props: {
