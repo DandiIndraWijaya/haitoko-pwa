@@ -28,7 +28,7 @@ const ProductByCategory = ({ products }) => {
 };
 
 export async function getStaticPaths() {
-  const resCategoriesMerchant = await fetch('https://zealous-newton-f7b790.netlify.app/api/categoriesMerchant');
+  const resCategoriesMerchant = await fetch('http://localhost:3000/api/categoriesMerchant');
   const categoriesMerchant = await resCategoriesMerchant.json();
 
   const paths = categoriesMerchant.response.map((category) => `/produk/${category.kategori.toLowerCase()}`);
@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`https://zealous-newton-f7b790.netlify.app/api/product/${params.kategori}`);
+  const res = await fetch(`http://localhost:3000/api/product/${params.kategori}`);
   const products = await res.json();
 
   return {

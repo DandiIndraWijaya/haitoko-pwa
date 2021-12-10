@@ -25,10 +25,10 @@ const MerchantDetail = ({ merchantDetail, categoriesMerchant }) => {
 };
 
 export async function getStaticProps() {
-  const resMerchantDetail = await fetch('https://zealous-newton-f7b790.netlify.app/api/merchantDetail');
+  const resMerchantDetail = await fetch('http://localhost:3000/api/merchantDetail');
   const merchantDetail = await resMerchantDetail.json();
 
-  const resCategoriesMerchant = await fetch('https://zealous-newton-f7b790.netlify.app/api/categoriesMerchant');
+  const resCategoriesMerchant = await fetch('http://localhost:3000/api/categoriesMerchant');
   const categoriesMerchant = await resCategoriesMerchant.json();
 
   return {
