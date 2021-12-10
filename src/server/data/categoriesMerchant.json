@@ -1,0 +1,53 @@
+{
+  "response": [
+      {
+          "id": "1",
+          "kategori": "Makanan",
+          "gambar": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/kategori/kategori20211209104924000000-65.jpg"
+      },
+      {
+          "id": "2",
+          "kategori": "Minuman",
+          "gambar": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/kategori/kategori20211209104933000000-51.jpg"
+      },
+      {
+          "id": "4",
+          "kategori": "Snack ",
+          "gambar": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/kategori/kategori20211209104940000000-400.jpg"
+      },
+      {
+          "id": "5",
+          "kategori": "Kebutuhan Dapur",
+          "gambar": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/kategori/kategori20211209104947000000-294.jpg"
+      },
+      {
+          "id": "11",
+          "kategori": "Kebutuhan Anak",
+          "gambar": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/kategori/kategori20211209104954000000-282.jpg"
+      },
+      {
+          "id": "17",
+          "kategori": "Perawatan & Kesehatan",
+          "gambar": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/kategori/kategori20211209105001000000-193.jpg"
+      },
+      {
+          "id": "18",
+          "kategori": "Makanan Beku",
+          "gambar": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/kategori/kategori20211209105009000000-367.jpg"
+      },
+      {
+          "id": "20",
+          "kategori": "Lain-lain",
+          "gambar": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/kategori/kategori20211209105047000000-600.jpg"
+      },
+      {
+          "id": "24",
+          "kategori": "Paket  Promo",
+          "gambar": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/kategori/kategori20211209105053000000-988.jpg"
+      }
+  ],
+  "metadata": {
+      "status": 200,
+      "message": "Berhasil"
+  }
+}

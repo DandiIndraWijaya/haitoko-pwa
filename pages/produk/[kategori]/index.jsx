@@ -12,53 +12,38 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const ProductByCategory = () => {
+const ProductByCategory = ({ products }) => {
   const classes = useStyles();
   const router = useRouter();
   const { kategori } = router.query;
-
-  useEffect(() => {
-    const kategoriArray = [];
-    kategoriArray.push(kategori);
-    axios.post(
-      'http://panel.haitoko.xyz/api/product/list_product_merchant_v2',
-      {
-        merchant: 'GIpd2vlG3Aue5v48BCtHqBODvBT7cv',
-        keyword: '',
-        kategori: kategoriArray,
-        sort: '',
-        start: 0,
-        count: 100,
-      },
-      {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'Client-Service': 'gmedia-client',
-          'Auth-Key': 'tokotap-client',
-          'User-id': 'N3L5FOpo1KfxU2fVC6hAIhJvUjc2',
-          Token: 'WyVFmgndhPCSk++RIKffDsz/TLL1cMH/NiD3jVscJ9Y=',
-          'Access-Control-Allow-Origin': '*',
-        },
-      },
-    )
-      .then((res) => {
-        console.log('RES : ', res);
-      })
-      .catch((error) => {
-        console.log('ERROR : ', error);
-      });
-  }, []);
-
   return (
     <Layout>
       <NavbarBack currentPage={kategori.charAt(0).toUpperCase() + kategori.slice(1)} />
       <Container>
         <SearchProduct />
-        <ProductList />
+        <ProductList products={products} />
       </Container>
     </Layout>
   );
 };
+
+export async function getStaticPaths() {
+  const resCategoriesMerchant = await fetch('https://zealous-newton-f7b790.netlify.app/api/categoriesMerchant');
+  const categoriesMerchant = await resCategoriesMerchant.json();
+
+  const paths = categoriesMerchant.response.map((category) => `/produk/${category.kategori.toLowerCase()}`);
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(`https://zealous-newton-f7b790.netlify.app/api/product/${params.kategori}`);
+  const products = await res.json();
+
+  return {
+    props: {
+      products,
+    },
+  };
+}
 
 export default ProductByCategory;

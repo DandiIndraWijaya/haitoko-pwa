@@ -10,18 +10,33 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const MerchantDetail = () => {
+const MerchantDetail = ({ merchantDetail, categoriesMerchant }) => {
   const classes = useStyles();
 
   return (
     <Layout>
       <NavbarBack currentPage="Detail Toko" />
       <Container>
-        <Highlight />
-        <ProductCategories />
+        <Highlight merchantDetail={merchantDetail} />
+        <ProductCategories categoriesMerchant={categoriesMerchant} />
       </Container>
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const resMerchantDetail = await fetch('https://zealous-newton-f7b790.netlify.app/api/merchantDetail');
+  const merchantDetail = await resMerchantDetail.json();
+
+  const resCategoriesMerchant = await fetch('https://zealous-newton-f7b790.netlify.app/api/categoriesMerchant');
+  const categoriesMerchant = await resCategoriesMerchant.json();
+
+  return {
+    props: {
+      merchantDetail,
+      categoriesMerchant,
+    },
+  };
+}
 
 export default MerchantDetail;

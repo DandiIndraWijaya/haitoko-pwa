@@ -1,9 +1,9 @@
+/* eslint-disable radix */
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useMediaQuery } from 'react-responsive';
 import { Favorite } from '@material-ui/icons';
-import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,17 +78,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Highlight = () => {
+const Highlight = ({ merchantDetail }) => {
   const classes = useStyles();
   const isMobile = useMediaQuery({ query: '(max-width: 789px)' });
   const [selectedDelivery, setSelectedDelivery] = useState(0);
 
-  const deliveries = [
-    'Express',
-    '09:15',
-    '12:02',
-    '15:02',
-  ];
+  const ratingToko = () => {
+    const { rating } = merchantDetail.response;
+    return (((parseInt(rating.rate_barang) + parseInt(rating.rate_harga) + parseInt(rating.rate_pelayanan)) / 3).toFixed(1));
+  };
 
   return (
     <Box className={classes.root}>
@@ -108,7 +106,7 @@ const Highlight = () => {
                   </Box>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography className={classes.rating}>4.0</Typography>
+                  <Typography className={classes.rating}>{ratingToko()}</Typography>
                 </Grid>
               </Grid>
             </Box>
@@ -116,19 +114,19 @@ const Highlight = () => {
         </Grid>
         <Grid item xs={isMobile ? 8 : 9}>
           <Box>
-            <Typography className={classes.merchantName}>Toko Dummy Azura</Typography>
-            <Typography className={classes.street}>Jalan Lumbung Sari V No 3</Typography>
+            <Typography className={classes.merchantName}>{merchantDetail?.response?.nama_merchant}</Typography>
+            <Typography className={classes.street}>{merchantDetail?.response?.alamat_merchant}</Typography>
             <Box mt={1}>
               <Grid container spacing={1} alignItems="center">
                 {
-                deliveries.map((delivery, key) => (
+                merchantDetail?.response?.available.map((delivery, key) => (
                   <Grid item xs={4} key={key}>
                     <Box
                       className={selectedDelivery === key
                         ? classes.selectedDeliveryContainer : classes.deliveryContainer}
                       onClick={() => setSelectedDelivery(key)}
                     >
-                      {delivery}
+                      {delivery.label}
                     </Box>
                   </Grid>
                 ))
