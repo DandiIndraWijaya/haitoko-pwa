@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Grid, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import axios from 'axios';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,8 +39,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main,
     textTransform: 'none',
     color: '#ffff',
-    marginTop: 30,
-    marginBottom: 30,
     '&:hover': {
       backgroundColor: theme.palette.primary.main,
       color: '#ffff',
@@ -50,7 +48,13 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductCategories = ({ categoriesMerchant }) => {
   const classes = useStyles();
-
+  const router = useRouter();
+  const logout = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('user');
+      router.push('/login');
+    }
+  };
   return (
     <Box className={classes.root}>
       <Typography className={classes.title}>Kategori Produk</Typography>
@@ -71,7 +75,10 @@ const ProductCategories = ({ categoriesMerchant }) => {
         </Grid>
       </Box>
       <center>
-        <Button variant="contained" className={classes.addToFavoriteBtn}>Tambah ke Favorite</Button>
+        <Button style={{ marginTop: 30 }} variant="contained" className={classes.addToFavoriteBtn}>Tambah ke Favorite</Button>
+        <Box style={{ marginBottom: 30, marginTop: 15 }}>
+          <Button onClick={logout} variant="contained" className={classes.addToFavoriteBtn}>Logout</Button>
+        </Box>
       </center>
     </Box>
   );
