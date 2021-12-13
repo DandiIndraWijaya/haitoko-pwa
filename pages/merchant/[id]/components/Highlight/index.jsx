@@ -93,7 +93,7 @@ const Highlight = ({ merchantDetail }) => {
       <Grid container alignItems="center">
         <Grid item xs={isMobile ? 4 : 3}>
           <img
-            src="https://picsum.photos/150"
+            src={merchantDetail?.response?.logo_merchant}
             alt=""
             className={classes.image}
           />

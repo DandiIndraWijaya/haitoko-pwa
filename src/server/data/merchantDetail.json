@@ -10,8 +10,8 @@
         "kecamatan": "Gunung pati",
         "kota": "Kota semarang",
         "provinsi": "Jawa tengah",
-        "jam_buka": "08:15:30",
-        "jam_tutup": "19:15:30",
+        "jam_buka": "06:15:30",
+        "jam_tutup": "10:15:30",
         "status": "Buka",
         "nama_pemilik": "maspen",
         "no_hp_pemilik": "082313565152",
@@ -47,7 +47,7 @@
                 "type": "sesi"
             }
         ],
-        "logo_merchant": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/merchant/merchant20210803091928000000-100.jpg",
+        "logo_merchant": "https://haitoko.s3.ap-southeast-1.amazonaws.com/products/merchant20211119100752000000-702.jpg",
         "rating": {
             "rate_harga": "5",
             "rate_barang": "5",

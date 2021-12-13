@@ -19,10 +19,13 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     width: '100%',
     borderRadius: 20,
-    height: 80,
+    height: 100,
     borderStyle: 'solid',
     borderWidth: 5,
     borderColor: theme.palette.grey[300],
+    [theme.breakpoints.down('sm')]: {
+      height: 90,
+    }
   },
   productName: {
     fontSize: 16,
