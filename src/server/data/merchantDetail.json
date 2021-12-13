@@ -1,62 +1,62 @@
 {
-  "response": {
-      "uid": "FPagUu2xb98paY3NIvpM",
-      "nama_merchant": "Cek Toko",
-      "alamat_merchant": "Jl. Bukit Cinta sangat cinta sayang banget (sayangnya gak punya)",
-      "no_hp_merchant": "0895358240936",
-      "latitude": "-7.008186698366743",
-      "longitude": "110.37386092416733",
-      "kelurahan": "Manyaran",
-      "kecamatan": "Semarang barat",
-      "kota": "Kota semarang",
-      "provinsi": "Jawa tengah",
-      "jam_buka": "07:00:30",
-      "jam_tutup": "22:00:30",
-      "status": "Buka",
-      "nama_pemilik": "12312312331",
-      "no_hp_pemilik": "0423435",
-      "alamat_pemilik": "sdadasd ada",
-      "email": "",
-      "instagram": "",
-      "facebook": "",
-      "nama_pic": "Testng",
-      "no_hp_pic": "0204",
-      "available": [
-          {
-              "kode_sesi_pengiriman": "747474",
-              "value": "express",
-              "label": "Express",
-              "type": "metode"
-          },
-          {
-              "kode_sesi_pengiriman": "447140",
-              "value": "sesi 1",
-              "label": "08:00",
-              "type": "sesi"
-          },
-          {
-              "kode_sesi_pengiriman": "527542",
-              "value": "sesi 2",
-              "label": "09:00",
-              "type": "sesi"
-          },
-          {
-              "kode_sesi_pengiriman": "628332",
-              "value": "sesi 3",
-              "label": "12:00",
-              "type": "sesi"
-          }
-      ],
-      "logo_merchant": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/merchant/merchant20210609071852000000-466.jpg",
-      "rating": {
-          "rate_harga": "5",
-          "rate_barang": "4",
-          "rate_pelayanan": "5"
-      },
-      "favorit": 0
-  },
-  "metadata": {
-      "status": 200,
-      "message": "Berhasil"
-  }
+    "response": {
+        "uid": "GIpd2vlG3Aue5v48BCtHqBODvBT7cv",
+        "nama_merchant": "mas pen",
+        "alamat_merchant": "jl. banaran 123",
+        "no_hp_merchant": "082313565152",
+        "latitude": "-7.055204911840587",
+        "longitude": "110.39190776231156",
+        "kelurahan": "Mangunsari",
+        "kecamatan": "Gunung pati",
+        "kota": "Kota semarang",
+        "provinsi": "Jawa tengah",
+        "jam_buka": "08:15:30",
+        "jam_tutup": "19:15:30",
+        "status": "Buka",
+        "nama_pemilik": "maspen",
+        "no_hp_pemilik": "082313565152",
+        "alamat_pemilik": "jl, banaran 123",
+        "email": "",
+        "instagram": "",
+        "facebook": "",
+        "nama_pic": "mas pen",
+        "no_hp_pic": "082316565152",
+        "available": [
+            {
+                "kode_sesi_pengiriman": "355268",
+                "value": "express",
+                "label": "Express",
+                "type": "metode"
+            },
+            {
+                "kode_sesi_pengiriman": "921628",
+                "value": "sesi 1",
+                "label": "06:15",
+                "type": "sesi"
+            },
+            {
+                "kode_sesi_pengiriman": "989462",
+                "value": "sesi 2",
+                "label": "09:53",
+                "type": "sesi"
+            },
+            {
+                "kode_sesi_pengiriman": "394494",
+                "value": "sesi 3",
+                "label": "10:53",
+                "type": "sesi"
+            }
+        ],
+        "logo_merchant": "https://haitoko-dev.s3.ap-southeast-1.amazonaws.com/merchant/merchant20210803091928000000-100.jpg",
+        "rating": {
+            "rate_harga": "5",
+            "rate_barang": "5",
+            "rate_pelayanan": "5"
+        },
+        "favorit": 0
+    },
+    "metadata": {
+        "status": 200,
+        "message": "Berhasil"
+    }
 }
