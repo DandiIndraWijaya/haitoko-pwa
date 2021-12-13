@@ -8,11 +8,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 40,
   },
   card: {
-    height: 230,
+    height: 270,
     position: 'relative',
     marginBottom: 20,
     [theme.breakpoints.down('sm')]: {
-      height: 210,
+      height: 230,
     },
   },
   productImage: {
